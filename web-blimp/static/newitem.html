@@ -2,15 +2,15 @@
 <head>
     <title>Blimp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" /> 
-    <link rel="stylesheet" href="style4.css"/>
+    <link rel="stylesheet" href="/style/style4.css"/>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-storage.js"></script>
-    <script src="index.js"></script>
-    <script src="result.js"></script>
-    <script src="newitem1.js"></script>
+    <script src="/src/index.js"></script>
+    <script src="/src/result.js"></script>
+    <script src="/src/newitem1.js"></script>
 </head>
 <body>
     <div id="objectContainer">
@@ -20,8 +20,8 @@
         <input class="front" type="text" placeholder="Add a Title" id="title_text">
         <br><input class="front" onchange="getfile()" type='file' id="photo" />
         <br><img width="320px" height="320px" class="front" id="myImg" src="https://www.fivestardestination.com/wp-content/uploads/2019/03/Just-white-square-300x300.png">
-        <img id='tut_img'src="upload_img.png">
-        <img hidden id='tut_pay'src="card_payment.png">
+        <img id='tut_img'src="/img/upload_img.png">
+        <img hidden id='tut_pay'src="/img/card_payment.png">
         <button onclick="next()" id="next">Next →</button>
         <button hidden onclick="back()" id="back">← Back</button>
         <br><input hidden type="text" placeholder="Add Price" id="price_float">

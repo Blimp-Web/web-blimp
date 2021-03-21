@@ -1,0 +1,137 @@
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    display: block;
+
+}
+
+body{
+	padding: 100px 0;
+	background: #c9dbe9;
+	background: -webkit-linear-gradient(top, #f25c54 0%, #f4845f 100%);
+	background: -linear-gradient(top, #f25c54 0%, #f4845f 100%);
+	background: -moz-linear-gradient(top, #f25c54 0%, #f4845f 100%);
+}
+nav{
+
+    width:100%;
+    background: #f25c54b4;
+    overflow: hidden;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    height: 50px;
+}
+ul{
+    
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+li{
+    
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+a{
+    
+    padding: 20px;
+    width: 100px;
+    display: block;
+    text-decoration: none;
+    color:#fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#from-container{
+    position: absolute;
+    margin-top: -0.5%;
+    margin-left: 45%;
+    margin-right: 25%;
+    margin-bottom: 25%;
+    border: rgba(235, 81, 81, 0.829) solid 20px;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #f4845f;
+    padding: 50px;
+    width: 200px;
+    height: 200px;
+}
+#link1{
+    position: relative;
+    top: 10px;
+    color: black;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline-block
+}
+#blimp{
+    position: absolute;
+    top: 60px;
+    left: 35%;
+}
+#password{
+    position: relative;
+    top: 10px;
+    right: 0px;
+    outline: none;
+    width: 200px;
+    height: 25px;
+    font-size: 23px;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: #f4845f;
+    margin-top: 20px;
+}
+#email{
+    outline: none;
+    width: 200px;
+    height: 25px;
+    font-size: 23px;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: #f4845f;
+    margin-top: 20px;
+
+}
+#userName{
+    outline: none;
+    width: 200px;
+    height: 25px;
+    font-size: 23px;
+    border: none;
+    border-bottom: 3px solid black;
+    background-color: #f4845f;
+}
+#signUp{
+    position: relative;
+    top: 20px;
+    left: -5px;
+    background-color: black;
+    color: white;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px 15px 15px 15px;
+    border: none;
+    outline: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+#signuptxt{
+    position: relative;
+    top: -30px;
+    left: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#section2{
+    position: relative;
+    top: 1000px;
+    width: 100%;
+    height: 900px;
+    background-color: black;
+}
+#account-info{
+    font-family: Arial, Helvetica, sans-serif;
+}

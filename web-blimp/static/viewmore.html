@@ -1,0 +1,293 @@
+<html>
+    <head>
+        <title>
+            Blimp
+        </title>
+        <link rel="stylesheet" href="style3.css" />
+        <script type="text/javascript" src="result.js" ></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <div id="a1">
+                <li><a href="signup.html">SignIn</a></li>
+                <li>
+                    <a id="cart" href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=maksym%2evovk%40outlook%2ecom&display=1">View Cart</a>                    
+                </li>
+                </div>
+
+            </ul>
+          
+
+        </nav>
+        <div id="account-info">
+            <h1 id="title"></h1>
+        <!--<select id="select">
+            <option id="option1"></option>
+            <option id="option2"></option>
+            <option id="option3"></option>
+            <option id="option4"></option>
+            <option id="option5"></option>
+        </select>-->
+       <!---- <div id="clouds">
+	        <div class="cloud x1"></div>
+
+	        <div class="cloud x2"></div>
+	        <div class="cloud x3"></div>
+	        <div class="cloud x4"></div>
+	        <div class="cloud x5"></div>
+            <div class="cloud x2"></div>
+	        <div class="cloud x3"></div>
+	        <div class="cloud x4"></div>
+	        <div class="cloud x5"></div>
+        </div> -->
+        <style>
+            /*Lets start with the cloud formation rather*/
+            
+            /*The container will also serve as the SK*/
+            
+            #clouds{
+            top: 0;
+            }
+            
+            /*Time to finalise the cloud shape*/
+            .cloud {
+                width: 200px; height: 60px;
+                background: #f3816d;
+                
+                border-radius: 200px;
+                -moz-border-radius: 200px;
+                -webkit-border-radius: 200px;
+                
+                position: relative; 
+            }
+            
+            .cloud:before, .cloud:after {
+                content: '';
+                position: absolute; 
+                background: #f27059;
+                width: 100px; height: 80px;
+                position: absolute; top: -15px; left: 10px;
+                
+                border-radius: 100px;
+                -moz-border-radius: 100px;
+                -webkit-border-radius: 100px;
+                
+                -webkit-transform: rotate(30deg);
+                transform: rotate(30deg);
+                -moz-transform: rotate(30deg);
+            }
+            
+            .cloud:after {
+                width: 120px; height: 120px;
+                top: -55px; left: auto; right: 15px;
+            }
+            
+            /*Time to animate*/
+            .x1 {
+                -webkit-animation: moveclouds 15s linear infinite;
+                -moz-animation: moveclouds 15s linear infinite;
+                -o-animation: moveclouds 15s linear infinite;
+            }
+            
+            /*variable speed, opacity, and position of clouds for realistic effect*/
+            .x2 {
+                left: 200px;
+                
+                -webkit-transform: scale(0.6);
+                -moz-transform: scale(0.6);
+                transform: scale(0.6);
+                opacity: 0.6; /*opacity proportional to the size*/
+                
+                /*Speed will also be proportional to the size and opacity*/
+                /*More the speed. Less the time in 's' = seconds*/
+                -webkit-animation: moveclouds 25s linear infinite;
+                -moz-animation: moveclouds 25s linear infinite;
+                -o-animation: moveclouds 25s linear infinite;
+            }
+            
+            .x3 {
+                left: -250px; top: -200px;
+                
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0.8; /*opacity proportional to the size*/
+                
+                -webkit-animation: moveclouds 20s linear infinite;
+                -moz-animation: moveclouds 20s linear infinite;
+                -o-animation: moveclouds 20s linear infinite;
+            }
+            
+            .x4 {
+                left: 470px; top: -250px;
+                
+                -webkit-transform: scale(0.75);
+                -moz-transform: scale(0.75);
+                transform: scale(0.75);
+                opacity: 0.75; /*opacity proportional to the size*/
+                
+                -webkit-animation: moveclouds 18s linear infinite;
+                -moz-animation: moveclouds 18s linear infinite;
+                -o-animation: moveclouds 18s linear infinite;
+            }
+            
+            .x5 {
+                left: -150px; top: -150px;
+                
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0.8; /*opacity proportional to the size*/
+                
+                -webkit-animation: moveclouds 20s linear infinite;
+                -moz-animation: moveclouds 20s linear infinite;
+                -o-animation: moveclouds 20s linear infinite;
+            }
+            
+                @-webkit-keyframes moveclouds {
+                0% {margin-left: 1000px;}
+                100% {margin-left: -1000px;}
+            }
+                @-moz-keyframes moveclouds {
+                0% {margin-left: 1000px;}
+                100% {margin-left: -1000px;}
+            }
+                @-o-keyframes moveclouds {
+                0% {margin-left: 1000px;}
+                100% {margin-left: -1000px;}
+            }
+                    </style>
+        <style>
+            #body{
+                background-color: #f25c54;
+            }
+            #section1{
+                position: relative;
+                top: 100px;
+                width: 1900;
+                height: 500px;
+            }
+            #subsec{
+                position: relative;
+                top: 0px;
+                left: 100px;
+                width: 1300px;
+                height: 600px;
+                background-color: white;
+                border: 2px solid black;
+            }
+            #num_color{
+                position: relative;
+                top: -1160;
+                color: rgb(0, 0, 0);
+                font-size: 50;
+                left: -380;
+                font-family: Arial, Helvetica, sans-serif;
+
+            }
+            #num_color2{
+                position: relative;
+                top: -685px;
+                left: 30px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-weight: bold;
+            }
+            #clbl {
+                position: relative;
+                left: 0px;
+                top: 3px;
+                border: 5px solid #ff443a;
+                padding: 5px;
+                background-color: #ff443a;
+                border-radius: 51px;
+                color: white;
+                font-size: 26px;
+                text-align: center;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            #container2 {
+                position: relative;
+                left: 690px;
+                top: -320px;
+                width: 158px;
+                height: 48px;
+                border: 2px solid #ff443a;
+                background-color: rgb(255, 255, 255);
+                border-radius: 50px 50px 50px 50px;
+            }
+            #tag{
+                position: relative;
+                top: -600px;
+                left: 500px;
+            }
+            #price{
+                position: relative;
+                top: -300px;
+                left: 700px;
+            }
+            #add_to_cart{
+                position: relative;
+                top: -884px;
+                left: 850px;
+                outline: none;
+            }            
+        </style>
+        <script src="viewmore.js"></script>
+        </div>
+        <div id="section1">
+            <div id="subsec"></div>
+            <h1 id="price"></h1>
+            <div id="container2">
+            <label id="clbl">Colors</label>
+            <select id="select">
+                <option id="option1"></option>
+                <option id="option2"></option>
+                <option id="option3"></option>
+                <option id="option4"></option>
+                <option id="option5"></option>
+            </select>
+            </div>
+            <div id="container">
+            <img id="img1">
+            <label id="num_color">01</label>
+            <img onmouseover="body_hover()" id="img11">
+            <label id="num_color2">01</label>
+            <img onmouseover="img2_hover()" id="img2">
+            <label id="num_color2">02</label>
+            <img onmouseover="img3_hover()" id="img3">
+            <label id="num_color2">03</label>
+            <img onmouseover="img4_hover()" id="img4">
+            <label id="num_color2">04</label>
+            <img onmouseover="img5_hover()" id="img5">
+            <label id="num_color2">05</label>
+        </div>
+        <div id="buy_button">
+            <form target="paypal" action="https://www.paypal.com/cgi-bin/webscr" method="post" >
+                <input type="hidden" name="cmd" value="_cart">
+                <input type="hidden" name="business" value="maksym.vovk@outlook.com">
+                <input type="hidden" name="lc" value="US">
+                <input id="item_name" type="hidden" name="item_name" value="x">
+                <input id="item_price" type="hidden" name="amount" value="1.00">
+                <input type="hidden" name="currency_code" value="USD">
+                <input type="hidden" name="button_subtype" value="products">
+                <input type="hidden" name="no_note" value="0">
+                <input type="hidden" name="tax_rate" value="0.000">
+                <input type="hidden" name="shipping" value="0.00">
+                <input type="hidden" name="add" value="1">
+                <input type="hidden" name="bn" value="PP-ShopCartBF:btn_cart_LG.gif:NonHostedGuest">
+                <input onclick="Cart()" id="add_to_cart" type="image" src="add_to_cart.png" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!"> <!--https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif-->
+                <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+            </form>
+        </div>
+        </div>
+        <div id="0"></div>
+    </body>
+</html>

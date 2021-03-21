@@ -1,0 +1,197 @@
+<html>
+    <head>
+        <title>
+            Blimp
+        </title>
+        <link rel="stylesheet" href="style2.css" />
+        <script type="text/javascript" src="result.js" ></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.7/firebase-firestore.js"></script>
+        <script src="index.js"></script>
+    </head>
+    <body onload="ifUser()">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <div id="a1">
+                <li>
+                    <a id="cart" href="https://www.paypal.com/cgi-bin/webscr?cmd=_cart&business=maksym%2evovk%40outlook%2ecom&display=1">View Cart</a>                    
+                </li>
+                </div>
+
+            </ul>
+          
+
+        </nav>
+        <div id="account-info">
+        <h1 style="color: white; position: static;">   Welcome 
+        </h1>
+        <h2>
+            <span hidden style="color: white; position: static;" id="result-name" />
+        </h2>
+        <h2>
+            <span hidden style="color: white; position: static;" id="userName11">
+        </h2>
+
+        <div id="clouds">
+	        <div class="cloud x1"></div>
+	<!-- Time for multiple clouds to dance around -->
+	        <div class="cloud x2"></div>
+	        <div class="cloud x3"></div>
+	        <div class="cloud x4"></div>
+	        <div class="cloud x5"></div>
+            <div class="cloud x2"></div>
+	        <div class="cloud x3"></div>
+	        <div class="cloud x4"></div>
+	        <div class="cloud x5"></div>
+        </div>
+        <style>
+            /*Lets start with the cloud formation rather*/
+            
+            /*The container will also serve as the SK*/
+            
+            #clouds{
+            top: 0;
+            }
+            
+            /*Time to finalise the cloud shape*/
+            .cloud {
+                width: 200px; height: 60px;
+                background: #f3816d;
+                
+                border-radius: 200px;
+                -moz-border-radius: 200px;
+                -webkit-border-radius: 200px;
+                
+                position: relative; 
+            }
+            
+            .cloud:before, .cloud:after {
+                content: '';
+                position: absolute; 
+                background: #f27059;
+                width: 100px; height: 80px;
+                position: absolute; top: -15px; left: 10px;
+                
+                border-radius: 100px;
+                -moz-border-radius: 100px;
+                -webkit-border-radius: 100px;
+                
+                -webkit-transform: rotate(30deg);
+                transform: rotate(30deg);
+                -moz-transform: rotate(30deg);
+            }
+            
+            .cloud:after {
+                width: 120px; height: 120px;
+                top: -55px; left: auto; right: 15px;
+            }
+            
+            /*Time to animate*/
+            .x1 {
+                -webkit-animation: moveclouds 15s linear infinite;
+                -moz-animation: moveclouds 15s linear infinite;
+                -o-animation: moveclouds 15s linear infinite;
+            }
+            
+            /*variable speed, opacity, and position of clouds for realistic effect*/
+            .x2 {
+                left: 200px;
+                
+                -webkit-transform: scale(0.6);
+                -moz-transform: scale(0.6);
+                transform: scale(0.6);
+                opacity: 0.6; /*opacity proportional to the size*/
+                
+                /*Speed will also be proportional to the size and opacity*/
+                /*More the speed. Less the time in 's' = seconds*/
+                -webkit-animation: moveclouds 25s linear infinite;
+                -moz-animation: moveclouds 25s linear infinite;
+                -o-animation: moveclouds 25s linear infinite;
+            }
+            
+            .x3 {
+                left: -250px; top: -200px;
+                
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0.8; /*opacity proportional to the size*/
+                
+                -webkit-animation: moveclouds 20s linear infinite;
+                -moz-animation: moveclouds 20s linear infinite;
+                -o-animation: moveclouds 20s linear infinite;
+            }
+            
+            .x4 {
+                left: 470px; top: -250px;
+                
+                -webkit-transform: scale(0.75);
+                -moz-transform: scale(0.75);
+                transform: scale(0.75);
+                opacity: 0.75; /*opacity proportional to the size*/
+                
+                -webkit-animation: moveclouds 18s linear infinite;
+                -moz-animation: moveclouds 18s linear infinite;
+                -o-animation: moveclouds 18s linear infinite;
+            }
+            
+            .x5 {
+                left: -150px; top: -150px;
+                
+                -webkit-transform: scale(0.8);
+                -moz-transform: scale(0.8);
+                transform: scale(0.8);
+                opacity: 0.8; /*opacity proportional to the size*/
+                
+                -webkit-animation: moveclouds 20s linear infinite;
+                -moz-animation: moveclouds 20s linear infinite;
+                -o-animation: moveclouds 20s linear infinite;
+            }
+            
+                @-webkit-keyframes moveclouds {
+                0% {margin-left: 1000px;}
+                100% {margin-left: -1000px;}
+            }
+                @-moz-keyframes moveclouds {
+                0% {margin-left: 1000px;}
+                100% {margin-left: -1000px;}
+            }
+                @-o-keyframes moveclouds {
+                0% {margin-left: 1000px;}
+                100% {margin-left: -1000px;}
+            }
+                    </style>
+        <style>
+            #body{
+                background-color: white;;
+            }
+            #section1{
+                position: relative;
+                top: 100px;
+                width: 100%;
+                height: 1000px;
+            }
+            #section2{
+                width: 100%;
+                height: 500px;
+            }
+            #section3{
+                position: relative;
+                top: 2000px;
+                background-color: cyan;
+                width: 100%;
+                height: 500px;
+
+            }
+        </style>
+        <script src="getitem.js"></script>
+        </div>
+        <div id="section1">
+        </div>
+        <div id="0"></div>
+    </body>
+</html>

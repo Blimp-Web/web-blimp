@@ -72,7 +72,6 @@ addEventListener('scroll', () => {
 
         var db = firebase.database()
         var ref = db.ref('My_Products/' + niche);
-        var ref2 = db.ref('users/' + 'hey@gmailÂ¢com')//sessionStorage.getItem('NAME').replace('.', 'Â¢'))
         
         // Attach an asynchronous callback to read the data at our posts reference
         ref.on("value", function(snapshot) {

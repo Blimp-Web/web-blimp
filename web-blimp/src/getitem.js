@@ -389,7 +389,7 @@ function tst(){
   });
 }
 function new_item_button(){
-  window.location.href="newitem.html"
+  window.location.href="/static/newitem.html"
 
 }
 

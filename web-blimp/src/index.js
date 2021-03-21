@@ -69,7 +69,7 @@ function find_userPassword(){
           console.log('$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$%$$%$%$%%$%$%$%$$%$%$')
 
           if (document.getElementById('password').value == JSON.stringify(data.userPassword).replace('"','').replace('"','')){
-            window.location.href="result.html"
+            window.location.href="/static/result.html"
   
         }
         else{
@@ -126,7 +126,7 @@ function signOut(){
       
     auth.signOut();
     alert("Signed Out");
-    window.location.href="signin.html";
+    window.location.href="/static/signin.html";
     
 }
 function profile(){

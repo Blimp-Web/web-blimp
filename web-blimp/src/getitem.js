@@ -321,7 +321,7 @@ addEventListener('scroll', () => {
 });
 
 function new_i_s(){
-  window.location.href="viewmore.html";
+  window.location.href="../src/viewmore.html";
 
   const im1 = document.getElementById('item_img' + (num_index[0] + 1)).getAttribute('src');
   const o1 = document.getElementById('o1' + (num_index[0] + 1)).innerHTML
@@ -389,7 +389,7 @@ function tst(){
   });
 }
 function new_item_button(){
-  window.location.href="/static/newitem.html"
+  window.location.href="../static/newitem.html"
 
 }
 

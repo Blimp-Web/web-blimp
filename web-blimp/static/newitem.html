@@ -24,10 +24,14 @@
         <img hidden id='tut_pay'src="../img/card_payment.png">
         <button onclick="next()" id="next">Next →</button>
         <button hidden onclick="back()" id="back">← Back</button>
+        <button hidden onclick="preview()" id="preview">Preview</button>
+        <button hidden onclick="back2()" id="back2">← Back</button>
         <br><input hidden type="text" placeholder="Add Price" id="price_float">
         <br><input hidden type="text" placeholder="Add Shipping Cost" id="shipping_float">
         <br><input hidden type="text" placeholder="Add Tax Rate" id="tax_float">
         <br><input hidden type="email" placeholder="Enter your PayPal Email" id="paypalemail">
+        <h1 hidden id="preview_price"></h1>
+        <h1 hidden id="preview_title_text"></h1>
         <div hidden id="curr_container">
         <br><label hidden id="curr_text">Currency</label><select hidden id="curr">
             <option value="USD">USD</option>

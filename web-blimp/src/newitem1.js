@@ -109,14 +109,15 @@ function next(){
   document.getElementById('shipping_float').removeAttribute('hidden')
   document.getElementById('tax_float').removeAttribute('hidden')
   document.getElementById('paypalemail').removeAttribute('hidden')
-  document.getElementById('uploader').removeAttribute('hidden')
+  //document.getElementById('uploader').removeAttribute('hidden')
   document.getElementById('curr').removeAttribute('hidden')
-  document.getElementById('submit_link').removeAttribute('hidden')
+  //document.getElementById('submit_link').removeAttribute('hidden')
   document.getElementById('curr_text').removeAttribute('hidden')
   document.getElementById('headertext2').removeAttribute('hidden')
   document.getElementById('curr_container').removeAttribute('hidden')
   document.getElementById('back').removeAttribute('hidden')
   document.getElementById('tut_pay').removeAttribute('hidden')
+  document.getElementById('preview').removeAttribute('hidden')
 
 
 }
@@ -133,6 +134,7 @@ function back(){
   document.getElementById('curr_container').setAttribute('hidden','true')
   document.getElementById('back').setAttribute('hidden', 'true')
   document.getElementById('tut_pay').setAttribute('hidden', 'true')
+  document.getElementById('preview').setAttribute('hidden', 'true')
 
   document.getElementById('headertext').removeAttribute('hidden')
   document.getElementById('title_text').removeAttribute('hidden')
@@ -143,6 +145,32 @@ function back(){
   document.getElementById('next').removeAttribute('hidden')
   document.getElementById('tut_img').removeAttribute('hidden')
 }
+function back2(){
+  document.getElementById('myImg').setAttribute('style','border: none;')
+  document.getElementById('myImg').setAttribute('width','0px')
+  document.getElementById('myImg').setAttribute('height','0px')
+  document.getElementById('preview_text').setAttribute('hidden', 'true')
+  document.getElementById('preview_price').setAttribute('hidden', 'true')
+  document.getElementById('back2').setAttribute('hidden', 'true')
+  document.getElementById('preview_title_text').setAttribute('hidden', 'true')
+  document.getElementById('submit_link').setAttribute('hidden','true')
+  document.getElementById('uploader').setAttribute('hidden','true')
+
+  document.getElementById('price_float').removeAttribute('hidden')
+  document.getElementById('shipping_float').removeAttribute('hidden')
+  document.getElementById('tax_float').removeAttribute('hidden')
+  document.getElementById('paypalemail').removeAttribute('hidden')
+  document.getElementById('uploader').removeAttribute('hidden')
+  document.getElementById('curr').removeAttribute('hidden')
+  document.getElementById('submit_link').removeAttribute('hidden')
+  document.getElementById('curr_text').removeAttribute('hidden')
+  document.getElementById('headertext2').removeAttribute('hidden')
+  document.getElementById('curr_container').removeAttribute('hidden')
+  document.getElementById('back').removeAttribute('hidden')
+  document.getElementById('tut_pay').removeAttribute('hidden')
+  document.getElementById('preview').removeAttribute('hidden')
+}
+
 function preview(){
   document.getElementById('price_float').setAttribute('hidden','true')
   document.getElementById('shipping_float').setAttribute('hidden','true')
@@ -155,9 +183,20 @@ function preview(){
   document.getElementById('headertext2').setAttribute('hidden','true')
   document.getElementById('curr_container').setAttribute('hidden','true')
   document.getElementById('back').setAttribute('hidden', 'true')
+  document.getElementById('tut_pay').setAttribute('hidden', 'true')
+  document.getElementById('preview').setAttribute('hidden', 'true')
 
   document.getElementById('myImg').setAttribute('width','320px')
   document.getElementById('myImg').setAttribute('height','320px')
+  document.getElementById('myImg').setAttribute('style', 'position: relative; top: 1.5%;')
   document.getElementById('preview_text').removeAttribute('hidden')
+  document.getElementById('preview_title_text').removeAttribute('hidden')
+  document.getElementById('preview_title_text').innerHTML = document.getElementById('title_text').value
+  document.getElementById('preview_title_text').setAttribute('style', 'position: relative; top: -81%; left: 25%; white-space: nowrap;')
+  document.getElementById('preview_price').removeAttribute('hidden')
+  document.getElementById('preview_price').innerHTML = document.getElementById('price_float').value + '$'
+  document.getElementById('back2').removeAttribute('hidden')
+  document.getElementById('submit_link').removeAttribute('hidden')
+  document.getElementById('uploader').removeAttribute('hidden')
 }
 

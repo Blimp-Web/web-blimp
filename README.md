@@ -1,5 +1,3 @@
-# web-blimp
-Ecommerce Website
 # Blimp.com
 -We find what you need-
 

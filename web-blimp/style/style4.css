@@ -65,7 +65,7 @@ h1{
 }
 #title_text {
     position: relative;
-    left: 35%;
+    left: 32%;
     outline: none;
     border: none;
     width: 200px;
@@ -118,6 +118,36 @@ h1{
     font-size: 20px;
     text-align: left;
     outline: none;
+}
+#back2 {
+    position: fixed;
+    top: 76%;
+    left: 21%;
+    color: white;
+    background-color: #ff443a;
+    border: none;
+    border-radius: 20px;
+    width: 90px;
+    height: 40px;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: left;
+    outline: none;
+}
+#preview{
+    position: fixed;
+    top: 76%;
+    left: 69%;
+    color: white;
+    background-color: #ff443a;
+    border: none;
+    border-radius: 20px;
+    width: 90px;
+    height: 40px;
+    font-family: sans-serif;
+    font-size: 20px;
+    text-align: left;
+    outline: none;  
 }
 #price_float{
     position: relative;
@@ -208,6 +238,20 @@ h1{
     position: fixed;
     left: 55%;
     top: 30%;
+}
+#preview_price{
+    position: relative;
+    left: 37%;
+}
+#uploader {
+    position: relative;
+    top: -80px;
+    left: 250px;
+}
+#submit_link {
+    position: relative;
+    top: -80px;
+    left: 250px;
 }
 
 

@@ -244,7 +244,7 @@ addEventListener('scroll', () => {
       in13.setAttribute('type', "image");
       in13.setAttribute('style', 'position: relative; top: -500px; left: -10px;')
       in13.setAttribute('class', 'add_t_c')
-      in13.setAttribute('src', "add_to_cart.png"); //https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif
+      in13.setAttribute('src', "../img/add_to_cart.png"); //https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif
       in13.innerHTML = 'Add to Cart'
       in13.setAttribute('border', "0");
       in13.setAttribute('name', "submit");
@@ -321,7 +321,7 @@ addEventListener('scroll', () => {
 });
 
 function new_i_s(){
-  window.location.href="../src/viewmore.html";
+  window.location.href="viewmore.html";
 
   const im1 = document.getElementById('item_img' + (num_index[0] + 1)).getAttribute('src');
   const o1 = document.getElementById('o1' + (num_index[0] + 1)).innerHTML

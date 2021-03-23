@@ -108,6 +108,7 @@ function homepage(){
 };
 function handleSubmit () {
     const name = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
     //const surname = document.getElementById('surname').value;
 
     // to set into local storage
@@ -115,6 +116,7 @@ function handleSubmit () {
     localStorage.setItem("SURNAME", surname); */
     
     sessionStorage.setItem("NAME", name);
+    sessionStorage.setItem('PASS', password);
     //sessionStorage.setItem("SURNAME", surname);
 
     return;

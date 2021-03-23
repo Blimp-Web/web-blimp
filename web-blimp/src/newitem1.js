@@ -200,3 +200,21 @@ function preview(){
   document.getElementById('uploader').removeAttribute('hidden')
 }
 
+function signIn2(){
+      
+  var email = sessionStorage.getItem('NAME')
+  var password = sessionStorage.getItem('PASS')
+
+  
+  const promise = auth.signInWithEmailAndPassword(email, password);
+  promise.catch(e => alert(e.message));
+
+
+
+  //useremail.innerHTML = ("User Email: " + email.value);
+
+
+}
+
+
+

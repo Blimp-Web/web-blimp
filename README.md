@@ -10,7 +10,7 @@ We are willing to revolutionize the way E-Commerce works with our website Blimp.
 
 - **How it Works**:
 
-/Basically, we want to make a website on witch anybody could sell a product. We don't want to use the usual method of just displaying a bunch of products to the customer and expect him to just choose some. The main ways of finding a products are either going into a niche, l'ets say men's clothing, and I find a cool tank top that I decide to buy, searching for the item on the search bar and looking down at the results or when looking at your recommended page, that will be on the "For you" page. For selling, on your account the seller will be able to click on a button "Sell Item" and specify the niche, price and specific information. All items that are currently still in sale will appear in the seller's account, under the "Selling Here" section. 
+/Basically, we want to make a website on witch anybody could sell a product. We don't want to use the usual method of just displaying a bunch of products to the customer and expect him to just choose some. The main ways of finding a products are either going into a niche, lets say men's clothing, and I find a cool tank top that I decide to buy, searching for the item on the search bar and looking down at the results or when looking at your recommended page, that will be on the "For you" page. For selling, on your account the seller will be able to click on a button "Sell Item" and specify the niche, price and specific information. All items that are currently still in sale will appear in the seller's account, under the "Selling Here" section. 
 
 **Niches**
 

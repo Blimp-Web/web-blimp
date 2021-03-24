@@ -67,6 +67,7 @@ a{
     font-family: Arial, Helvetica, sans-serif;
     display: inline-block
 }
+
 #blimp{
     position: absolute;
     top: 60px;
@@ -135,3 +136,4 @@ a{
 #account-info{
     font-family: Arial, Helvetica, sans-serif;
 }
+/*i need to be able to instantly change stuff and view the results to try and change things so find a way to give me access to modifications & running the code to see the results*/

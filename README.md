@@ -13,7 +13,7 @@ We are willing to revolutionize the way E-Commerce works with our website Blimp.
 Active Finder | Passive Finder | Seller's Products
  ------------ | ------------- | ------------
 Search Bar | For You Page | Seller’s Account
-Niches | Advertising
+Niches | advertisements
 
 **Niches and product boxes**
 
@@ -23,7 +23,7 @@ Customers can find items by scrolling down in a specific niche, and choosing fro
 **Search Bar**
 
 When searching for a specific item, customers may use the Search Bar. Like all other search bars, customers type in what they are looking for and click on Search. They can choose in the results that will show up. 
-- [  ]  Search bar Image
+- [ ]  Search bar Image
 
 **For You**
 

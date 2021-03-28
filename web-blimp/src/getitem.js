@@ -7,6 +7,8 @@ var num_add = 1
 var img2_list = []
 var price_list = []
 var store_names = []
+var like_list = []
+var keys
 
 
 
@@ -60,6 +62,8 @@ addEventListener('scroll', () => {
         let o4 = document.createElement('option');
         let o5 = document.createElement('option');
         let new_style = document.createElement('button');
+        let likes = document.createElement('h1')
+        let like_button = document.createElement('button')
 
         var niche = "Men's Clothing:";
         var img_list = []
@@ -88,7 +92,7 @@ addEventListener('scroll', () => {
               var color5 = data[k].color5;
               var titlex = data[k].title;
               var price = data[k].price;
-              var store_name = database.sn;
+              var likes = data[k].likes
               img_list.push(JSON.stringify(image));
               img2_list.push(JSON.stringify(image2));
               title_list.push(JSON.stringify(titlex));
@@ -98,8 +102,9 @@ addEventListener('scroll', () => {
               color_list3.push(JSON.stringify(color3));
               color_list4.push(JSON.stringify(color4));
               color_list5.push(JSON.stringify(color5));
-              store_names.push(JSON.stringify(store_name));
-              console.log(store_name);
+              like_list.push(JSON.stringify(likes))
+              keys = Object.keys(data)
+              console.log(keys)
               console.log("yes");
 
 
@@ -122,13 +127,21 @@ addEventListener('scroll', () => {
 
         
         // .replace(/['"]+/g, '')
-        title.setAttribute('id', 'titletext');
+        title.setAttribute('id', 'titletext' + num);
+        title.setAttribute('class', 'titles')
         title.innerHTML = title_list[num].replace(/['"]+/g, ''); //.replace(/['"]+/g, '')
         store_name.setAttribute('id', 'store-name');
         store_name.innerHTML = "QRWR Official Store";
         prices.setAttribute('id', ('price_item' + num));
         prices.setAttribute('class', 'prices');
         prices.innerHTML = parseFloat(price_list[num].split('-')[0].replace('"', '').replace('$', '').split('.')[0].replace("US", '') * 1.25) + '$';
+
+        likes.innerHTML = parseFloat(like_list[num].replace('K', '000').replace('.', '').replace('"', '').replace('"', ''))
+        likes.setAttribute('id', 'like_count' + num)
+        likes.setAttribute('type', 'number')
+        like_button.setAttribute('id', 'like_button')
+        like_button.setAttribute('onclick', 'like4()')
+        like_button.innerHTML = 'Like'
 
         var new_it_num = document.getElementById("newitem" + num);
         var gh = (num_index[0] + 1)
@@ -141,6 +154,8 @@ addEventListener('scroll', () => {
         document.getElementById('newitem' + num).appendChild(title);
         document.getElementById('newitem' + num).appendChild(store_name);
         document.getElementById('newitem' + num).appendChild(prices);
+        document.getElementById('newitem' + num).appendChild(likes);
+        document.getElementById('newitem' + num).appendChild(like_button);
         //document.getElementById("newitem" + num).appendChild(in1)
 
         var bodyRect = document.body.getBoundingClientRect(),
@@ -157,7 +172,7 @@ addEventListener('scroll', () => {
             img2_list.shift();
       
         }
-        if (num >= 20){
+        if (num >= 19){
           num_add = 0;
         }
 
@@ -242,7 +257,7 @@ addEventListener('scroll', () => {
       document.getElementById("formid" + num).appendChild(in12);
 
       in13.setAttribute('type', "image");
-      in13.setAttribute('style', 'position: relative; top: -500px; left: -10px;')
+      in13.setAttribute('style', 'position: relative; top: -530px; left: -10px;')
       in13.setAttribute('class', 'add_t_c')
       in13.setAttribute('src', "../img/add_to_cart.png"); //https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif
       in13.innerHTML = 'Add to Cart'
@@ -297,6 +312,8 @@ addEventListener('scroll', () => {
       new_style.innerHTML = 'View More'
 
       document.getElementById("newitem" + num).appendChild(new_style);
+
+      like3()
 
       /*var bodyRect = document.body.getBoundingClientRect(),
       elemRect = document.getElementById('newitem' + (num_index[0] + 1)).getBoundingClientRect(),
@@ -454,6 +471,115 @@ function openProfile(){
 function closeProfile(){
   document.body.removeChild(document.getElementById('profileContainer'))
 }
+function like(){
+
+
+  var x = document.getElementById('like_count' + (num_index[0] + 1)).innerHTML
+
+  var y = +x + 1
+  console.log(y)
+
+  document.getElementById('like_count' + (num_index[0] + 1)).innerHTML = y
+  console.log(keys)
+
+let title = document.getElementById('titletext' + (num_index[0] + 1)).innerHTML
+firebase.database().ref("My_Products/Men's Clothing:/" + keys[(num_index[0] + 1)]).update({
+  likes: document.getElementById('like_count' + (num_index[0] + 1)).innerHTML
+
+}, (error) => {
+  if (error) {
+    // The write failed...
+  } else {
+    // Data saved successfully!
+  }
+});
+
+firebase.database().ref(/users/+ sessionStorage.getItem('NAME').replace('.','') + '/liked/' + title).set({
+  liked: 'true'
+});
+}
+function like3(){
+  let title = document.getElementById('titletext' + (num_index[0] + 1)).innerHTML
+  firebase.database().ref(/users/+ sessionStorage.getItem('NAME').replace('.','') + '/liked/' + title).on("value", function(snapshot) {
+    if (snapshot.exists()) {
+      
+      //var data = childSnapshot.val();
+
+      //console.log(JSON.stringify(data.liked));
+
+     /* if (data.liked == 'true'){
+        console.log('liked = true')
+      }
+      if (data.liked == null){
+        console.log('liked = not true')
+      }*/
+      console.log('SnapShot Exists')
+
+
+    }
+    else{
+      console.log('No record of such snapshot')
+
+
+      firebase.database().ref(/users/+ sessionStorage.getItem('NAME').replace('.','') + '/liked/' + title).set({
+        liked: 'false'
+      });
+      console.log('Snapshot Created')
+    }
+
+  });
+}
+
+//work in progress
+function dislike(){
+  let title = document.getElementById('titletext' + (num_index[0] + 1)).innerHTML
+  let x = document.getElementById('like_count' + (num_index[0] + 1)).innerHTML
+
+  let y = x -= 1
+
+
+  document.getElementById('like_count' + (num_index[0] + 1)).innerHTML = y
+
+  firebase.database().ref(/users/+ sessionStorage.getItem('NAME').replace('.','') + '/liked/' + title).set({
+    liked: 'false'
+  });
+
+firebase.database().ref("My_Products/Men's Clothing:/" + keys[(num_index[0] + 1)]).update({
+  likes: document.getElementById('like_count' + (num_index[0] + 1)).innerHTML
+
+}, (error) => {
+  if (error) {
+    // The write failed...
+  } else {
+    // Data saved successfully!
+  }
+});
+}
+
+
+function like4(){
+
+  let title = document.getElementById('titletext' + (num_index[0] + 1)).innerHTML
+firebase.database().ref('/users/'+ sessionStorage.getItem('NAME').replace('.','') + '/liked/' + title).on("value", function(snapshot) {
+    
+    var data = snapshot.val();
+
+    console.log((data.liked));
+
+    if(data.liked == 'true'){
+      console.log('True')
+    }
+    if(data.liked == 'false'){
+      console.log('False')
+      like()
+
+    }
+
+
+
+});
+}
+
 
 /*function offf(){
   var bodyRect = document.body.getBoundingClientRect(),

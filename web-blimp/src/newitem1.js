@@ -72,7 +72,7 @@ function myfunction()
          // You get your url from here 
          var uEmail = sessionStorage.getItem('NAME')
          firebase.database().ref('Images/'+ uEmail.replace('.','')).push({
-             imaeg1: downloadURL,
+             image1: downloadURL,
              title: document.getElementById('title_text').value,
              price: document.getElementById('price_float').value,
              shipping: document.getElementById('shipping_float').value,

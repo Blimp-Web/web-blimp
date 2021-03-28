@@ -1,4 +1,12 @@
-
+var firebaseConfig = {
+    apiKey: "AIzaSyD5O5KdEYTpKVnqokjnG3pregy1KU1tmOk",
+    authDomain: "blimp-8588d.firebaseapp.com",
+    projectId: "blimp-8588d",
+    storageBucket: "blimp-8588d.appspot.com",
+    messagingSenderId: "796691090114",
+    appId: "1:796691090114:web:c2f03c2e883bf17156c95b",
+    measurementId: "G-9ZV16WQX5M"
+  };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
@@ -86,12 +94,16 @@ function signIn(){
     promise.catch(e => alert(e.message));
     var emi = ("")
     emi += email.value;
+    //NAME
 
 
     //useremail.innerHTML = ("User Email: " + email.value);
-    alert(emi + "important");
+    alert(emi);
 
 
+}
+function signIn2(){
+    const promise = auth.signInWithEmailAndPassword(sessionStorage.getItem('NAME'), sessionStorage.getItem('PASSWORD'));
 }
 
 function homepage(){

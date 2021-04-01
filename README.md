@@ -4,7 +4,7 @@
 E-Commerce Website
 #### **Our Goals**
 
-We are willing to revolutionize the way E-Commerce works with our website Blimp.com (which happens to be this project in particular). Our goal is to make a quality and good looking website, where customers can find specific items, look at the trends or just get some idea of what people have to offer. Sellers can use it to promote and sell their products /(wherever they make it or reselling old stuff lying around in a corner of their room) or services/. ~~We hope that you will find the following remix of the dictionary somehow interesting.~~ Just read and help us.
+We are willing to revolutionize the way E-Commerce works with our website Blimp.com (which happens to be this project in particular). Our goal is to make a quality and good looking website, where customers can find specific items, look at the trends or just get some idea of what people have to offer. Sellers can use it to promote and sell their products /(wherever they make it or reselling old stuff lying around in a corner of their room) or services/. If you want to contribute or contact us, you can do it with the email: ecom.blimp@gmail.com or go take a look at the CONTRIBUTE.md file.
 
 #### **How it Works**
 

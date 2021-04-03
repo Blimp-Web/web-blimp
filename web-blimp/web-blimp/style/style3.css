@@ -1,0 +1,146 @@
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 20px;
+    height: 50px;
+    color: coral;
+
+}
+
+body{
+	padding: 100px 0;
+	background: #c9dbe9;
+	background: -webkit-linear-gradient(top, #f25c54 0%, #f4845f 100%);
+	background: -linear-gradient(top, #f25c54 0%, #f4845f 100%);
+	background: -moz-linear-gradient(top, #f25c54 0%, #f4845f 100%);
+}
+nav{
+
+    width:100%;
+    background: #f25c54b4;
+    overflow: hidden;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    height: 55px;
+}
+ul{
+    
+    padding: 0;
+    margin: 0;
+    list-style: none;
+
+}
+li{
+    
+    float: left;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+a{
+    
+    padding: 20px;
+    width: 100px;
+    display: block;
+    text-decoration: none;
+    color:#fff;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#img1{
+    position: relative;
+    top: -700px;
+    left: 120px;
+    width: 500px;
+    height: 500px;
+    border-radius: 10px 10px 10px 10px;
+}
+#img11{
+    position: relative;
+    top: -700px;
+    left: 130px;
+    width: 100px;
+    height: 100px;
+}
+#img11:hover{
+    border: 2px solid black;
+}
+#img2{
+    position: relative;
+    top: -700px;
+    left: 130px;
+    width: 100px;
+    height: 100px;
+}
+#img2:hover{
+    border: 2px solid black;
+}
+
+#img3{
+    position: relative;
+    top: -700px;
+    left: 130px;
+    width: 100px;
+    height: 100px;
+}
+#img3:hover{
+    border: 2px solid black;
+}
+#img4{
+    position: relative;
+    top: -700px;
+    left: 130px;
+    width: 100px;
+    height: 100px;
+}
+#img4:hover{
+    border: 2px solid black;
+}
+#img5{
+    position: relative;
+    top: -700px;
+    left: 130px;
+    width: 100px;
+    height: 100px;
+}
+#img5:hover{
+    border: 2px solid black;
+}
+
+#select {
+    position: relative;
+    top: 2px;
+    left: 1px;
+    width: auto;
+    height: 45px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    border: 2px solid #ffffff;
+    border-radius: 50px 50px;
+    color: #000000;
+    text-align: center;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    outline: none;
+    background-color: #ffffff;
+}
+#select :hover{
+    cursor: pointer;
+}
+#price{
+    position: relative;
+    left: 720px;
+    top: -45px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+}
+#title{
+    position: relative;
+    z-index: 10;
+    top: 150px;
+    left: 120px;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: rgb(0, 0, 0);
+}

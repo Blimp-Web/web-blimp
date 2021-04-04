@@ -1,4 +1,12 @@
-
+var firebaseConfig = {
+    apiKey: "AIzaSyD5O5KdEYTpKVnqokjnG3pregy1KU1tmOk",
+    authDomain: "blimp-8588d.firebaseapp.com",
+    projectId: "blimp-8588d",
+    storageBucket: "blimp-8588d.appspot.com",
+    messagingSenderId: "796691090114",
+    appId: "1:796691090114:web:c2f03c2e883bf17156c95b",
+    measurementId: "G-9ZV16WQX5M"
+  };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
@@ -38,15 +46,28 @@ function userName(){
         firebase.database().ref('users/'+ uEmail.replace('.','')).push({
             userEmail: document.getElementById('email').value,
             userName: document.getElementById('userName').value,
-            userPassword: document.getElementById('password').value
+            userPassword: document.getElementById('password').value,
+            userPhone: document.getElementById('phonenumber').value,
+            userAddress: document.getElementById('address').value,
+            userCountry: document.getElementById('country').value,
+            userSPR: document.getElementById('SPR').value,
+            userCity: document.getElementById('city').value,
+            userPostalCode: document.getElementById('postalcode').value,
     
         });
+        
 
     }
     else{
         console.log('short password')
     }
 
+}
+function setBalance(){
+    var uEmail = document.getElementById('email').value;
+    firebase.database().ref(/users/+ uEmail.replace('.','') + '/balance').push({
+        payment: 0,
+      });
 }
 
 

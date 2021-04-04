@@ -46,18 +46,17 @@ a{
     font-weight: bold;
     text-transform: uppercase;
 }
-#from-container{
+#from-container {
     position: absolute;
-    margin-top: -0.5%;
-    margin-left: 45%;
+    margin-top: -10%;
+    margin-left: 30%;
     margin-right: 25%;
     margin-bottom: 25%;
-    border: rgba(235, 81, 81, 0.829) solid 20px;
     border-radius: 10px 10px 10px 10px;
-    background-color: #f4845f;
+    background-color: #ffffff;
     padding: 50px;
-    width: 200px;
-    height: 200px;
+    width: 40%;
+    height: 55%;
 }
 #link1{
     position: relative;
@@ -65,50 +64,51 @@ a{
     color: black;
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    display: inline-block
+    display: inline;
 }
 #blimp{
     position: absolute;
     top: 60px;
     left: 35%;
 }
-#password{
+#password {
     position: relative;
-    top: 10px;
+    top: 0px;
     right: 0px;
     outline: none;
-    width: 200px;
+    width: 250px;
     height: 25px;
-    font-size: 23px;
+    font-size: 15px;
     border: none;
     border-bottom: 3px solid black;
-    background-color: #f4845f;
-    margin-top: 20px;
+    background-color: #ffffff;
+    margin-top: 10px;
 }
 #email{
     outline: none;
     width: 200px;
     height: 25px;
-    font-size: 23px;
+    font-size: 15px;
     border: none;
     border-bottom: 3px solid black;
-    background-color: #f4845f;
-    margin-top: 20px;
+    background-color: #ffffff;
+    margin-top: 10px;
 
 }
 #userName{
     outline: none;
     width: 200px;
     height: 25px;
-    font-size: 23px;
+    font-size: 15px;
     border: none;
     border-bottom: 3px solid black;
-    background-color: #f4845f;
+    background-color: #ffffff;
+    margin-bottom: 30px;
 }
 #signUp{
     position: relative;
-    top: 20px;
-    left: -5px;
+    top: 10%;
+    left: -40%;
     background-color: black;
     color: white;
     width: 200px;
@@ -134,4 +134,26 @@ a{
 }
 #account-info{
     font-family: Arial, Helvetica, sans-serif;
+}
+#phonenumber{
+    position: relative;
+    margin-top: 30px;
+}
+input{
+    outline: none;
+    width: 200px;
+    height: 25px;
+    font-size: 15px;
+    border: 1px solid #262626;
+    background-color: #ffffff;
+    margin-top: 30px; 
+    margin-right: 10px; 
+}
+#SPR{
+    width: 250px;
+}
+select{
+    outline: none;
+    border: 1px solid #262626;
+    width: 200px;
 }

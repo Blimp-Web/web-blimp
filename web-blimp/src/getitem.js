@@ -64,6 +64,8 @@ addEventListener('scroll', () => {
         let new_style = document.createElement('button');
         let likes = document.createElement('h1')
         let like_button = document.createElement('button')
+        let pay_pal = document.createElement('div')
+        let user_email_pay = document.createElement('input')
 
         var niche = "Men's Clothing:";
         var img_list = []
@@ -104,8 +106,6 @@ addEventListener('scroll', () => {
               color_list5.push(JSON.stringify(color5));
               like_list.push(JSON.stringify(likes))
               keys = Object.keys(data)
-              console.log(keys)
-              console.log("yes");
 
 
     
@@ -121,7 +121,7 @@ addEventListener('scroll', () => {
         new_it.setAttribute("id", ("newitem" + num));
         new_it.setAttribute('class', "widget");
         img.setAttribute("class", ('imgg'));
-        console.log(img_list);
+        //console.log(img_list);
         img.setAttribute('src', img_list[num].replace(/['"]+/g, ''));
         img.setAttribute('id', ("item_img" + num));
 
@@ -143,6 +143,13 @@ addEventListener('scroll', () => {
         like_button.setAttribute('onclick', 'like4()')
         like_button.innerHTML = 'Like'
 
+        pay_pal.setAttribute('id', 'paypal-button' + num)
+        pay_pal.setAttribute('class', 'paypal_button_class')
+
+        user_email_pay.setAttribute('hidden', 'true')
+        user_email_pay.setAttribute('id', 'item_seller')
+        user_email_pay.value = 'vinc@gmail.com'
+
         var new_it_num = document.getElementById("newitem" + num);
         var gh = (num_index[0] + 1)
 
@@ -156,6 +163,8 @@ addEventListener('scroll', () => {
         document.getElementById('newitem' + num).appendChild(prices);
         document.getElementById('newitem' + num).appendChild(likes);
         document.getElementById('newitem' + num).appendChild(like_button);
+        document.getElementById('newitem' + num).appendChild(pay_pal);
+        document.getElementById('newitem' + num).appendChild(user_email_pay);
         //document.getElementById("newitem" + num).appendChild(in1)
 
         var bodyRect = document.body.getBoundingClientRect(),
@@ -264,6 +273,7 @@ addEventListener('scroll', () => {
       in13.setAttribute('border', "0");
       in13.setAttribute('name', "submit");
       in13.setAttribute('alt', "Add to Cart");  //PayPal - The safer, easier way to pay online!
+      in13.setAttribute('hidden', 'true')
 
       document.getElementById("formid" + num).appendChild(in13);
 
@@ -275,6 +285,104 @@ addEventListener('scroll', () => {
       in14.setAttribute('height', "1");
 
       document.getElementById("formid" + num).appendChild(in14);
+
+
+      let price_text = document.getElementById('price_item' + (num_index[0] + 1)).innerHTML.replace('"', '').replace('"', '').replace('$', '')
+
+      console.log(price_text + ' price')
+
+      paypal.Button.render({
+        // Configure environment
+        env: 'sandbox',  //production //sandbox
+        client: {
+          sandbox: 'Ad9837ugK-BWTC3kW90ZKjz6spLTdAY0gx5o_oVXzEetPHh6pUC8hpNe8f95gdcNkqzGWp1N7ye_vJKq',
+          production: 'AdfWOTbtXR19UaXKtoXBNv2gCn-WBNtrAF88chS1D95I3HVs0FHf2Z8100JSCAYP1UlCQyVLGE4bMQ9U'
+        },
+        // Customize button (optional)
+        locale: 'en_US',
+        style: {
+          size: 'large',
+          color: 'black',
+          shape: 'pill',
+          label: 'paypal',
+          tagline: 'false'
+        },
+    
+        // Enable Pay Now checkout flow (optional)
+        commit: true,
+    
+        // Set up a payment
+
+
+        payment: function(data, actions) {
+          return actions.payment.create({
+            transactions: [
+              {
+                amount: { total: document.getElementById('price_item' + (num_index[0] + 1)).innerHTML.replace('"', '').replace('"', '').replace('$', ''), currency: 'USD' },
+                item_list: {
+                  items: [
+                    {
+                    name: document.getElementById('titletext' + (num_index[0] + 1)).innerHTML,
+                    description: 'No Description',
+                    quantity: '1',
+                    price: document.getElementById('price_item' + (num_index[0] + 1)).innerHTML.replace('"', '').replace('"', '').replace('$', ''),
+                    currency: 'USD',
+                    }
+                  ]
+                },
+
+              }
+            ]
+          });
+        },
+        // Execute the payment
+        onAuthorize: function(data, actions) {
+          return actions.payment.execute().then(function() {
+            // Show a confirmation message to the buyer
+            window.alert('Thank you for your purchase!');
+            console.log(data.paymentToken)
+            //add order to the sellers dashboard
+            firebase.database().ref('users/' + document.getElementById('result-name').innerHTML.replace('.','')).on("value", function(snapshot) {
+              snapshot.forEach(function(childSnapshot) {
+                
+                var data = childSnapshot.val();
+          
+                firebase.database().ref(/users/+ document.getElementById('item_seller').value.replace('.', '') + '/orders/').push({
+                  item: document.getElementById('titletext' + (num_index[0] + 1)).innerHTML,
+                  payment: document.getElementById('price_item' + (num_index[0] + 1)).innerHTML.replace('$',''),
+                  user: data.userName,
+                  phone: data.userPhone,
+                  address: data.userAddress,
+                  country: data.userCountry,
+                  spr: data.userSPR,
+                  city: data.userCity,
+                  postal: data.userPostalCode
+          
+                });
+          
+           
+          
+              });
+          
+            });
+            /*firebase.database().ref(/users/+ document.getElementById('item_seller').value.replace('.', '') + '/balance/').set({
+              balance: 0,
+            });*/
+            //update the balance
+            firebase.database().ref(/users/+ document.getElementById('item_seller').value.replace('.', '') + '/balance').push({
+              payment: document.getElementById('price_item' + (num_index[0] + 1)).innerHTML.replace('$','')
+            });
+          });
+        },
+        onShippingChange: function(data, actions) {
+          console.log(JSON.stringify(data) + ' important')
+          console.log(JSON.stringify(data.shipping_address))
+          console.log(data.selected_shipping_option)
+        },
+        
+          
+      
+      }, "#paypal-button" + num);
 
       select.setAttribute('id', "select" + num);
       select.setAttribute('class', 'colors')
@@ -480,7 +588,6 @@ function like(){
   console.log(y)
 
   document.getElementById('like_count' + (num_index[0] + 1)).innerHTML = y
-  console.log(keys)
 
 let title = document.getElementById('titletext' + (num_index[0] + 1)).innerHTML
 firebase.database().ref("My_Products/Men's Clothing:/" + keys[(num_index[0] + 1)]).update({
@@ -566,14 +673,16 @@ firebase.database().ref('/users/'+ sessionStorage.getItem('NAME').replace('.',''
 
     console.log((data.liked));
 
-    if(data.liked == 'true'){
-      console.log('True')
-    }
     if(data.liked == 'false'){
       console.log('False')
       like()
 
     }
+
+    if(data.liked == 'true'){
+      console.log('True')
+    }
+
 
 
 
